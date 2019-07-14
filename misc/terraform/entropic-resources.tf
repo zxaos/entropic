@@ -48,18 +48,18 @@ resource "aws_db_subnet_group" "db" {
 }
 
 resource "aws_db_instance" "db" {
-  storage_type         = "gp2"
-  engine               = "postgres"
-  engine_version       = "10.1"
-  instance_class       = "db.t2.micro" # TODO
-  name                 = "entropic_dev"
-  username             = "postgres"
-  password             = "raccoon-means-one-who-scrubs-with-its-hands"
-  db_subnet_group_name = aws_db_subnet_group.db.name
-
+  storage_type          = "gp2"
+  engine                = "postgres"
+  engine_version        = "10.1"
+  instance_class        = "db.t2.micro" # TODO
+  name                  = "entropic_dev"
+  username              = "postgres"
+  password              = "raccoon-means-one-who-scrubs-with-its-hands"
+  db_subnet_group_name  = aws_db_subnet_group.db.name
   allocated_storage     = 5
   max_allocated_storage = 100
   apply_immediately     = var.dev_mode
+  skip_final_snapshot   = var.dev_mode
 }
 
 # Cache
