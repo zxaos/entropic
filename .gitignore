@@ -15,3 +15,7 @@ services/data/entropic-cache
 # IDEs
 .idea
 .vscode
+
+# Terraform
+.terraform
+*.tfstate*
